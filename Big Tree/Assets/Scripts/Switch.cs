@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject switchTarget;
+
+    public bool isFlipped;
+
+    private void Update()
     {
-        
+        if (isFlipped)
+        {
+            switchTarget.GetComponent<Animator>().SetTrigger("goDown");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FlipSwitch()
     {
-        
+        //if (isFlipped)
+            //return;
+
+        //switchTarget.GetComponent<BlockMover>().MoveMe();
     }
 }
