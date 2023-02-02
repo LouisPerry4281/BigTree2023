@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    [SerializeField] private GameObject switchTarget;
+    [SerializeField] private GameObject[] switchTarget;
 
     public bool isFlipped;
 
-    public void FlipSwitch()
+    private void Update()
     {
         if (isFlipped)
-            return;
+        {
+            FlipSwitch();
+        }
+    }
 
-        switchTarget.GetComponent<Animator>().SetTrigger("goDown");
+    public void FlipSwitch()
+    {
+        foreach (GameObject target in switchTarget)
+        {
+            target.GetComponent<Animator>().SetTrigger("goDown");
+        }
+
+        isFlipped = !isFlipped;
     }
 }
