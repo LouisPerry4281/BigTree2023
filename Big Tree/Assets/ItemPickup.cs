@@ -9,9 +9,12 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] Transform holdTransform;
     [SerializeField] LayerMask layerMask;
 
+    RaycastHit currentObj;
+
     Transform mainCamera;
 
     bool itemIsMovable = false;
+    bool holdingObject = false;
 
     private void Start()
     {
@@ -20,16 +23,33 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
-        itemIsMovable = Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), pickupDistance, layerMask);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && itemIsMovable)
+        itemIsMovable = Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out currentObj, pickupDistance, layerMask);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Pickup();
-            itemIsMovable = false;
+            if (itemIsMovable && !holdingObject)
+            {
+                Pickup();
+                itemIsMovable = false;
+            }
+
+            else
+            {
+                Drop();
+            }
         }
     }
 
     void Pickup()
     {
-        print("Pick Up");
+        holdingObject = true;
+        currentObj.transform.parent = holdTransform;
+        currentObj.transform.rotation = holdTransform.rotation;
+        currentObj.transform.localPosition = Vector3.zero;
+    }
+
+    void Drop()
+    {
+        //holdingObject = false;
+        currentObj.transform.parent = null;
     }
 }
