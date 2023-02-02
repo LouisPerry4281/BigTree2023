@@ -16,11 +16,8 @@ public class RootRenderer : MonoBehaviour
 
     private void Update()
     {
-        print(points[1].position);
-
         for (int i = 0; i < points.Length; i++)
         {
-            //print(points[i].position);
             lineRenderer.SetPosition(i, points[i].position);
         }
     }

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2889537131072937576}
   - component: {fileID: 2889537131072937579}
   - component: {fileID: 2889537131072937577}
+  - component: {fileID: 7477288564938769501}
   m_Layer: 0
   m_Name: PlayerBody
   m_TagString: Untagged
@@ -145,6 +146,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+--- !u!114 &7477288564938769501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889537131072937578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36eb775efaeabf245ab9655d0c361c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupDistance: Infinity
+  holdTransform: {fileID: 2889537131403370450}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2889537131073410071
 GameObject:
   m_ObjectHideFlags: 0
