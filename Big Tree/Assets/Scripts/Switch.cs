@@ -8,19 +8,11 @@ public class Switch : MonoBehaviour
 
     public bool isFlipped;
 
-    private void Update()
-    {
-        if (isFlipped)
-        {
-            switchTarget.GetComponent<Animator>().SetTrigger("goDown");
-        }
-    }
-
     public void FlipSwitch()
     {
-        //if (isFlipped)
-            //return;
+        if (isFlipped)
+            return;
 
-        //switchTarget.GetComponent<BlockMover>().MoveMe();
+        switchTarget.GetComponent<Animator>().SetTrigger("goDown");
     }
 }
