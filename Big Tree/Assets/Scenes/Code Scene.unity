@@ -202,12 +202,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &192667641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9157112894893854535, guid: d41a2474c67891b4f9c9c417eff56129,
-    type: 3}
-  m_PrefabInstance: {fileID: 9157112895077077182}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &343356403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,21 +2062,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9157112894893854528, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112894893854528, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112894893854528, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.12
-      objectReference: {fileID: 0}
     - target: {fileID: 9157112895049955012, guid: d41a2474c67891b4f9c9c417eff56129,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2142,31 +2121,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _SwitchPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112895126496154, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112895126496158, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: switchTarget.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112895126496158, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: switchTarget.Array.data[0]
-      value: 
-      objectReference: {fileID: 192667641}
-    - target: {fileID: 9157112895126496158, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: switchTarget.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157112895126496158, guid: d41a2474c67891b4f9c9c417eff56129,
-        type: 3}
-      propertyPath: switchTarget.Array.data[2]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d41a2474c67891b4f9c9c417eff56129, type: 3}
