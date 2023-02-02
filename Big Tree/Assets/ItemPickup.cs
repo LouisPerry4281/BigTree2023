@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,11 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] float pickupDistance = Mathf.Infinity;
 
     [SerializeField] Transform holdTransform;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask pickupMask;
+    [SerializeField] LayerMask plugMask;
 
-    RaycastHit currentObj;
+    GameObject currentObj;
+    GameObject heldObject;
 
     Transform mainCamera;
 
@@ -23,20 +26,48 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
-        itemIsMovable = Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out currentObj, pickupDistance, layerMask);
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (itemIsMovable && !holdingObject)
+            RaycastHit hit;
+
+            if (!holdingObject && Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, pickupDistance, pickupMask))
             {
+                currentObj = hit.collider.gameObject;
                 Pickup();
-                itemIsMovable = false;
+                return;
+            }
+
+            if (!holdingObject)
+                return;
+
+            heldObject = currentObj;
+
+            if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, pickupDistance, plugMask))
+            {
+                currentObj = hit.collider.gameObject;
+                Plug();
+                return;
             }
 
             else
-            {
                 Drop();
-            }
         }
+    }
+
+    private void Plug()
+    {
+        holdingObject = false;
+        currentObj.transform.parent = null;
+
+        heldObject.transform.parent = currentObj.transform;
+        heldObject.transform.localPosition = Vector3.zero;
+        print(heldObject.name + " + " + currentObj.name);
+
+        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
+
+        heldObject.layer = 0;
     }
 
     void Pickup()
@@ -44,12 +75,21 @@ public class ItemPickup : MonoBehaviour
         holdingObject = true;
         currentObj.transform.parent = holdTransform;
         currentObj.transform.rotation = holdTransform.rotation;
+        currentObj.transform.Rotate(new Vector3(0, 90, 0));
         currentObj.transform.localPosition = Vector3.zero;
+
+        Rigidbody rb = currentObj.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
     }
 
     void Drop()
     {
-        //holdingObject = false;
+        holdingObject = false;
         currentObj.transform.parent = null;
+
+        Rigidbody rb = currentObj.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
     }
 }
