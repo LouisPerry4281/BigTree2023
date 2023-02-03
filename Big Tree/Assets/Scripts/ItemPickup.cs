@@ -15,6 +15,7 @@ public class ItemPickup : MonoBehaviour
     GameObject heldObject;
 
     Transform mainCamera;
+    GameManager gameManager;
 
     bool itemIsMovable = false;
     bool holdingObject = false;
@@ -22,6 +23,7 @@ public class ItemPickup : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -68,6 +70,8 @@ public class ItemPickup : MonoBehaviour
         rb.useGravity = false;
 
         heldObject.layer = 0;
+
+        gameManager.IncreasePlugs();
     }
 
     void Pickup()
