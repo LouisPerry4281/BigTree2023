@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float objectiveProgress;
+    float objectiveProgress;
     [SerializeField] float maxObjectives;
+
+    [SerializeField] GameObject levelCompleteObject;
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("PlayerBody");
+    }
 
     public void IncreasePlugs()
     {
@@ -18,6 +26,10 @@ public class GameManager : MonoBehaviour
 
     private void LevelComplete()
     {
-        print("woo");
+        if (levelCompleteObject != null)
+        {
+            levelCompleteObject.SetActive(true);
+            player.GetComponent<PlayerMovement>().enabled = false;
+        }
     }
 }
