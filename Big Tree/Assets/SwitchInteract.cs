@@ -23,6 +23,7 @@ public class SwitchInteract : MonoBehaviour
 
             if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, pickupDistance, switchLayer))
             {
+                print("Switch");
                 hit.collider.gameObject.GetComponent<Switch>().FlipSwitch();
             }
         }
