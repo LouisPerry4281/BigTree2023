@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ruins
+    uniqueID: 2874765215
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
