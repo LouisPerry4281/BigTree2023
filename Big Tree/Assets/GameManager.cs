@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    float objectiveProgress;
+    public float objectiveProgress;
     [SerializeField] float maxObjectives;
 
     [SerializeField] GameObject levelCompleteObject;
