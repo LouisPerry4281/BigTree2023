@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 47295357}
   - component: {fileID: 47295356}
   - component: {fileID: 47295355}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 9a2332ea04ea5c744b434a3c29323cac, type: 3}
@@ -746,20 +746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2889537131072937577, guid: 85440b9408dd52942a509acd0d63a33e,
-        type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2889537131072937578, guid: 85440b9408dd52942a509acd0d63a33e,
         type: 3}
       propertyPath: m_Name
       value: PlayerBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889537131072937579, guid: 85440b9408dd52942a509acd0d63a33e,
-        type: 3}
-      propertyPath: m_SlopeLimit
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85440b9408dd52942a509acd0d63a33e, type: 3}
